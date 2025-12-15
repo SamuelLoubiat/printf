@@ -9,17 +9,7 @@
 /*   Updated: 2025/11/21 15:04:37 by sloubiat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-int	check_args(char c, va_list ap);
-int	print_hex_nbr(unsigned long nbr, int upper);
-int	print_addr(void *p);
-int	print_dec_nbr(int nbr);
-int	print_undec_nbr(unsigned int nbr);
+#include "ft_printf.h"
 
 int	ft_printf(const char *s, ...)
 {
@@ -67,6 +57,17 @@ int	ft_putstr(char *s)
 	return (i);
 }
 
+int	print_addr(void *p)
+{
+	int	total;
+
+	if (!p)
+		return (ft_putstr("(nil)"));
+	total = ft_putstr("0x");
+	total += print_hex_nbr((unsigned long)p, 0);
+	return (total);
+}
+
 int	check_args(char c, va_list ap)
 {
 	if (c == 'c')
@@ -88,7 +89,10 @@ int	check_args(char c, va_list ap)
 	return (-1);
 }
 
-/*int	main(void)
+
+/*#include <stdio.h>
+
+int	main(void)
 {
 	char var = 's';
 	char *ptr = &var;
@@ -100,15 +104,13 @@ int	check_args(char c, va_list ap)
 	printf_return = 0;
 	str = 0;
 	ptr = 0;
-	// printf_return = printf("issprintf :
-	// dsds %p %i %s %d %u %x %X %%\n", ptr, 4, "test",
-	// 	2147483647, us_int, us_int, us_int);
-	// ft_printf_return = ft_printf("ft_printf :
-	// dsds %p %i %s %d %u %x %X %%\n", ptr, 4, "test",
-	// 	2147483647, us_int, us_int, us_int);
-	printf_return = printf("%s", "");
-	ft_printf_return = ft_printf("%s", "");
+	 printf_return = printf("issprintf :dsds %p %i %s %d %u %x %X %%\n", ptr, 4, "test",
+	 	2147483647, us_int, us_int, us_int);
+	 ft_printf_return = ft_printf("ft_printf :dsds %p %i %s %d %u %x %X %%\n", ptr, 4, "test",
+	 	2147483647, us_int, us_int, us_int);
+	//printf_return = printf("%p", 16);
+	//ft_printf_return = ft_printf("%p", 16);
+	printf("\n");
 	printf("printf return : %d\n", printf_return);
 	printf("ft_printf return : %d\n", ft_printf_return);
-	return (0);
 }*/
