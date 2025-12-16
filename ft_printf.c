@@ -89,7 +89,6 @@ int	check_args(char c, va_list ap)
 	return (-1);
 }
 
-
 /*#include <stdio.h>
 
 int	main(void)
@@ -104,9 +103,11 @@ int	main(void)
 	printf_return = 0;
 	str = 0;
 	ptr = 0;
-	 printf_return = printf("issprintf :dsds %p %i %s %d %u %x %X %%\n", ptr, 4, "test",
+	 printf_return = printf("issprintf :dsds %p %i %s 
+	 %d %u %x %X %%\n", ptr, 4, "test",
 	 	2147483647, us_int, us_int, us_int);
-	 ft_printf_return = ft_printf("ft_printf :dsds %p %i %s %d %u %x %X %%\n", ptr, 4, "test",
+	 ft_printf_return = ft_printf("ft_printf :dsds %p %i %s 
+	 %d %u %x %X %%\n", ptr, 4, "test",
 	 	2147483647, us_int, us_int, us_int);
 	//printf_return = printf("%p", 16);
 	//ft_printf_return = ft_printf("%p", 16);
